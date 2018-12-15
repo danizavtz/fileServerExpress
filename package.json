@@ -1,0 +1,37 @@
+{
+  "name": "fileserver",
+  "version": "1.0.0",
+  "description": "express donwload",
+  "main": "app.js",
+  "scripts": {
+    "start": "node bin/www",
+    "test": "mocha --reporter spec test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danizavtz/fileServerExpress.git"
+  },
+  "keywords": [
+    "express",
+    "nodejs",
+    "file",
+    "downloader"
+  ],
+  "author": "danizavtz",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/danizavtz/fileServerExpress/issues"
+  },
+  "homepage": "https://github.com/danizavtz/fileServerExpress#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.10.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
+    "supertest": "^3.3.0"
+  }
+}
