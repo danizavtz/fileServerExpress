@@ -5,25 +5,26 @@
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'inpayapp@gmail.com',
-            pass: '1ngenico'
+            user: process.env.SMTPUSER,
+            pass: process.env.SMTPPASS
         },
         logger: false, // log to console
         debug: false // include SMTP traffic in the logs
     });
 
     exports.sendEmail = function(req, res) {
-        console.log(req)
         let mailOptions = {
-            from: 'inpayapp@gmail.com',
+            from: process.env.SMTPUSER,
             subject: '[Projeto de vida] ' + req.body.subtitle,
-            text: 'Mensagem de: ' + req.body.name + ', email: [' + req.body.email + '] ' + req.body.message,
-            to: 'cezarnonato@yahoo.com'
+            text: 'Mensagem de: ' + req.body.name + ', email: [' + req.body.email + '] ' + req.body.mensagem,
+            to: process.env.SMTPRECIPIENT
         }
         transporter.sendMail(mailOptions).then((trans) => {
+            res.status(200);
             res.json(trans);
             res.end();
         }).catch((error) => {
+            res.status(500);
             res.json(error);
             res.end();
         });
