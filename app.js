@@ -1,9 +1,12 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var cors = require('cors');
 require('dotenv').config()
 var app = express();
 app.disable('x-powered-by');
 cors({ credentials: true, origin: true });
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('/', require('./server/index'));

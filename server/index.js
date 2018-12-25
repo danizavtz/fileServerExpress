@@ -1,9 +1,9 @@
 (function() {
 
   'use strict';
-
   const express = require('express');
   const router = express.Router();
+  const emailService = require('./controllers/mail.controller.js')
 
   router.get('/caderno1', (req, res) => {
     res.contentType("application/pdf");
@@ -17,6 +17,7 @@
     res.contentType("application/pdf");
     res.status(200).sendFile(__dirname + '/cadernos/CADERNO3.pdf');
   });
+  router.post('/sendmail', emailService.sendEmail);
 
   module.exports = router;
 
